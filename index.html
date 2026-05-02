@@ -7,7 +7,7 @@
     <style>
         /* Design system: variables CSS de color, tipografía y espaciado */
         :root {
-            /* Paleta base inspirada en skin.html: verde premium, blanco, mint y tinta suave */
+            /* Paleta premium: verde técnico, blanco cristal, mint y acentos cálidos */
             --white-rgb: 255, 255, 255;
             --ink-rgb: 38, 52, 61;
             --line-rgb: 36, 56, 48;
@@ -20,6 +20,7 @@
             --mint-rgb: 97, 225, 151;
             --gold-rgb: 245, 214, 92;
             --accent-rgb: 246, 217, 112;
+
             --primary-color: #17a451;
             --primary-dark: #0c6d37;
             --primary-deep: #07562b;
@@ -30,7 +31,7 @@
             --accent-color: #f6d970;
             --danger-soft: #fff1ee;
             --bg-color: #f8fbf7;
-            --card-bg: rgba(var(--white-rgb), 0.82);
+            --card-bg: rgba(var(--white-rgb), 0.84);
             --card-bg-solid: #ffffff;
             --card-bg-soft: #f3f8f1;
             --text-main: #26343d;
@@ -40,14 +41,17 @@
             --border-light: rgba(var(--white-rgb), 0.88);
             --focus-ring: rgba(var(--primary-rgb), 0.24);
             --green-glow: rgba(var(--primary-light-rgb), 0.30);
+
             --shadow-lg: 0 30px 70px rgba(var(--ink-rgb), 0.16);
             --shadow-md: 0 18px 38px rgba(var(--ink-rgb), 0.13);
             --shadow-sm: 0 8px 20px rgba(var(--primary-shadow-rgb), 0.10);
             --shadow-button: 0 14px 26px rgba(var(--primary-rgb), 0.26);
             --shadow-inset: inset 6px 6px 14px rgba(var(--primary-deep-rgb), 0.06), inset -6px -6px 18px rgba(var(--white-rgb), 0.86);
+
             --gradient-primary: linear-gradient(145deg, var(--primary-light), var(--primary-color) 48%, var(--primary-dark));
-            --gradient-surface: linear-gradient(145deg, rgba(var(--white-rgb), 0.94), rgba(var(--surface-soft-rgb), 0.84));
+            --gradient-surface: linear-gradient(145deg, rgba(var(--white-rgb), 0.94), rgba(var(--surface-soft-rgb), 0.86));
             --gradient-bg: radial-gradient(circle at 84% 8%, rgba(var(--coral-rgb), 0.22) 0, transparent 18rem), radial-gradient(circle at 11% 55%, rgba(var(--mint-rgb), 0.18) 0, transparent 24rem), radial-gradient(circle at 91% 92%, rgba(var(--gold-rgb), 0.24) 0, transparent 20rem), linear-gradient(180deg, var(--card-bg-solid) 0%, var(--bg-color) 48%, var(--card-bg-solid) 100%);
+
             --font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
             --spacing-xs: 6px;
             --spacing-sm: 8px;
@@ -58,9 +62,9 @@
             --radius-md: 18px;
             --radius-lg: 26px;
             --radius-xl: 34px;
-            --app-width: 440px;
-            --header-height: 118px;
-            --footer-height: 118px;
+            --app-width: 480px;
+            --header-height: 150px;
+            --footer-height: 126px;
         }
 
         * {
@@ -78,12 +82,12 @@
             font-family: var(--font-family);
             background: var(--gradient-bg);
             color: var(--text-main);
-            min-height: 100vh;
-            height: 100vh;
+            min-height: 100dvh;
+            height: 100dvh;
             display: flex;
             flex-direction: column;
             align-items: center;
-            padding: clamp(14px, 3vw, 30px);
+            padding: clamp(12px, 3vw, 30px);
             overflow: hidden;
             position: relative;
         }
@@ -144,14 +148,15 @@
             width: min(100%, var(--app-width));
             min-height: var(--header-height);
             background: var(--card-bg);
-            padding: var(--spacing-lg) var(--spacing-lg) var(--spacing-md);
+            padding: 22px 22px 18px;
             border: 1px solid var(--border-light);
             border-bottom: 1px solid var(--border-color);
             border-radius: var(--radius-xl) var(--radius-xl) 0 0;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: var(--spacing-md);
+            flex-direction: column;
+            justify-content: center;
+            align-items: stretch;
+            gap: 16px;
             box-shadow: var(--shadow-lg), inset 1px 1px 3px rgba(var(--white-rgb), 0.94);
             backdrop-filter: blur(18px);
             -webkit-backdrop-filter: blur(18px);
@@ -188,28 +193,29 @@
             display: flex;
             align-items: center;
             gap: 12px;
-            min-width: max-content;
+            min-width: 0;
             position: relative;
             z-index: 1;
         }
 
         .logo-area::before {
             content: "";
-            width: 42px;
-            height: 42px;
-            flex: 0 0 42px;
-            border-radius: 16px;
+            width: 46px;
+            height: 46px;
+            flex: 0 0 46px;
+            border-radius: 17px;
             background: var(--gradient-primary);
             box-shadow: var(--shadow-sm), inset 1px 1px 1px rgba(var(--white-rgb), 0.48);
-            background-image: url("data:image/svg+xml,%3Csvg width='42' height='42' viewBox='0 0 42 42' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='2.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M13 15.5h16a4 4 0 0 1 4 4v3.2a4 4 0 0 1-4 4h-6.2l-5.1 4.2v-4.2H13a4 4 0 0 1-4-4v-3.2a4 4 0 0 1 4-4Z'/%3E%3Cpath d='M15.5 21.1h.1M21 21.1h.1M26.5 21.1h.1'/%3E%3Cpath d='M15 10.5c1.9-1.4 3.9-2 6-2 2.2 0 4.2.7 6 2' opacity='.68'/%3E%3C/g%3E%3C/svg%3E");
+            background-image: url("data:image/svg+xml,%3Csvg width='46' height='46' viewBox='0 0 46 46' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23ffffff' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M14 17h18a4.4 4.4 0 0 1 4.4 4.4v3.6a4.4 4.4 0 0 1-4.4 4.4h-7l-5.7 4.6v-4.6H14a4.4 4.4 0 0 1-4.4-4.4v-3.6A4.4 4.4 0 0 1 14 17Z'/%3E%3Cpath d='M16.7 23.1h.1M22.8 23.1h.1M28.9 23.1h.1'/%3E%3Cpath d='M16 11.7c2.2-1.5 4.4-2.3 7-2.3s4.9.8 7 2.3' opacity='.68'/%3E%3C/g%3E%3C/svg%3E");
             background-repeat: no-repeat;
             background-position: center;
-            background-size: 42px 42px;
+            background-size: 46px 46px;
         }
 
         .logo-area h1 {
-            font-size: clamp(1.04rem, 3vw, 1.28rem);
-            line-height: 1.05;
+            min-width: 0;
+            font-size: clamp(1.08rem, 3vw, 1.36rem);
+            line-height: 1.06;
             letter-spacing: -0.04em;
             color: var(--text-main);
             font-weight: 900;
@@ -219,47 +225,59 @@
         .logo-area h1::after {
             content: "AI Help Desk";
             display: block;
-            margin-top: 5px;
+            margin-top: 6px;
             color: var(--primary-color);
             font-size: 0.64rem;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            font-weight: 800;
+            font-weight: 850;
         }
 
         .api-config {
-            display: flex;
+            width: 100%;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
             align-items: center;
-            gap: var(--spacing-sm);
+            gap: 10px;
             position: relative;
             z-index: 1;
         }
 
-        .api-config input {
-            width: 182px;
-            min-width: 0;
-            padding: 12px 14px;
-            border: 1px solid var(--border-color);
+        .api-status {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 44px;
+            padding: 0 14px;
             border-radius: 999px;
-            background: rgba(var(--white-rgb), 0.62);
-            color: var(--text-main);
+            background: rgba(var(--white-rgb), 0.66);
+            border: 1px solid var(--border-light);
+            color: var(--text-soft);
+            font-size: 0.74rem;
+            font-weight: 850;
+            white-space: nowrap;
             box-shadow: var(--shadow-inset);
-            outline: none;
-            transition: border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease, transform 0.24s ease;
         }
 
-        .api-config input::placeholder,
-        textarea::placeholder {
-            color: var(--secondary-color);
-            opacity: 0.78;
+        .api-status::before {
+            content: "";
+            width: 8px;
+            height: 8px;
+            margin-right: 7px;
+            border-radius: 50%;
+            background: var(--secondary-color);
+            box-shadow: 0 0 0 4px rgba(var(--ink-rgb), 0.06);
         }
 
-        .api-config input:focus,
-        textarea:focus {
-            border-color: var(--primary-color);
-            background: rgba(var(--white-rgb), 0.86);
-            box-shadow: 0 0 0 5px var(--focus-ring), var(--shadow-inset);
-            transform: translateY(-1px);
+        .api-status.is-connected {
+            color: var(--primary-dark);
+            background: rgba(var(--mint-rgb), 0.18);
+            border-color: rgba(var(--primary-rgb), 0.22);
+        }
+
+        .api-status.is-connected::before {
+            background: var(--primary-light);
+            box-shadow: 0 0 0 4px rgba(var(--primary-rgb), 0.14);
         }
 
         /* main/body */
@@ -268,11 +286,11 @@
             flex: 1;
             min-height: 0;
             overflow-y: auto;
-            padding: var(--spacing-lg);
+            padding: 20px 22px;
             display: flex;
             flex-direction: column;
             gap: var(--spacing-md);
-            background: rgba(var(--white-rgb), 0.54);
+            background: rgba(var(--white-rgb), 0.56);
             border-left: 1px solid var(--border-light);
             border-right: 1px solid var(--border-light);
             box-shadow: var(--shadow-md);
@@ -313,7 +331,7 @@
 
         .chat-placeholder {
             max-width: 800px;
-            margin: auto auto 0;
+            margin: 0 auto;
             width: 100%;
             display: flex;
             flex-direction: column;
@@ -329,7 +347,7 @@
             padding: 8px 14px;
             margin-bottom: 8px;
             border-radius: 999px;
-            background: rgba(var(--white-rgb), 0.70);
+            background: rgba(var(--white-rgb), 0.72);
             border: 1px solid var(--border-light);
             color: var(--primary-dark);
             box-shadow: var(--shadow-sm);
@@ -339,6 +357,7 @@
             font-weight: 850;
             letter-spacing: 0.08em;
             text-transform: uppercase;
+            text-align: center;
         }
 
         .message {
@@ -346,12 +365,13 @@
             padding: 15px 16px;
             border-radius: 22px;
             border: 1px solid var(--border-light);
-            max-width: 86%;
+            max-width: 88%;
             box-shadow: var(--shadow-sm);
             animation: messageIn 0.45s ease both;
             transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
             position: relative;
             overflow: hidden;
+            overflow-wrap: anywhere;
         }
 
         .message:hover {
@@ -424,7 +444,7 @@
             width: min(100%, var(--app-width));
             min-height: var(--footer-height);
             background: var(--card-bg);
-            padding: var(--spacing-md) var(--spacing-lg) var(--spacing-lg);
+            padding: 15px 18px 20px;
             border: 1px solid var(--border-light);
             border-top: 1px solid var(--border-color);
             border-radius: 0 0 var(--radius-xl) var(--radius-xl);
@@ -439,7 +459,7 @@
             content: "";
             position: absolute;
             left: 50%;
-            bottom: 10px;
+            bottom: 9px;
             width: 128px;
             height: 5px;
             border-radius: 999px;
@@ -451,41 +471,63 @@
         .input-container {
             max-width: 800px;
             margin: 0 auto;
-            display: flex;
-            align-items: flex-end;
-            gap: var(--spacing-sm);
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) auto;
+            align-items: end;
+            gap: 10px;
             padding: 8px;
             border-radius: 24px;
-            background: rgba(var(--white-rgb), 0.58);
+            background: rgba(var(--white-rgb), 0.62);
             border: 1px solid var(--border-light);
             box-shadow: var(--shadow-inset);
         }
 
         textarea {
-            flex: 1;
+            width: 100%;
+            min-width: 0;
             padding: 13px 14px;
             border: 1px solid transparent;
             border-radius: 18px;
             resize: none;
             height: 58px;
-            max-height: 120px;
+            max-height: 124px;
             font-family: inherit;
+            font-size: 0.94rem;
+            line-height: 1.35;
             color: var(--text-main);
-            background: rgba(var(--white-rgb), 0.68);
+            background: rgba(var(--white-rgb), 0.72);
             outline: none;
             transition: border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease, transform 0.24s ease;
         }
 
+        textarea::placeholder,
+        .api-key-field input::placeholder {
+            color: var(--secondary-color);
+            opacity: 0.78;
+        }
+
+        textarea:focus,
+        .api-key-field input:focus {
+            border-color: var(--primary-color);
+            background: rgba(var(--white-rgb), 0.9);
+            box-shadow: 0 0 0 5px var(--focus-ring), var(--shadow-inset);
+            transform: translateY(-1px);
+        }
+
         button {
+            min-width: 0;
+            min-height: 44px;
+            border: 1px solid rgba(var(--white-rgb), 0.32);
+            border-radius: 999px;
+            padding: 0 18px;
             background: var(--gradient-primary);
             color: var(--text-inverse);
-            border: 1px solid rgba(var(--white-rgb), 0.32);
-            padding: 0 var(--spacing-lg);
-            min-height: 44px;
-            border-radius: 999px;
             cursor: pointer;
+            font: inherit;
+            font-size: 0.9rem;
             font-weight: 850;
             letter-spacing: -0.01em;
+            white-space: nowrap;
             box-shadow: var(--shadow-button);
             transition: transform 0.22s ease, box-shadow 0.22s ease, filter 0.22s ease, opacity 0.22s ease;
             position: relative;
@@ -501,24 +543,198 @@
             transition: transform 0.55s ease;
         }
 
-        button:hover {
+        button:hover:not(:disabled) {
             opacity: 0.98;
             transform: translateY(-2px);
             filter: saturate(1.06);
             box-shadow: 0 18px 34px rgba(var(--primary-rgb), 0.34);
         }
 
-        button:hover::before {
+        button:hover:not(:disabled)::before {
             transform: translateX(130%);
         }
 
-        button:active {
+        button:active:not(:disabled) {
             transform: translateY(0) scale(0.98);
+        }
+
+        button:disabled {
+            cursor: not-allowed;
+            opacity: 0.72;
+            filter: grayscale(0.12);
+            animation: none !important;
+        }
+
+        #openApiKeyBtn {
+            width: 100%;
+        }
+
+        #openApiKeyBtn.is-connected {
+            background: linear-gradient(145deg, rgba(var(--primary-light-rgb), 0.96), var(--primary-dark));
         }
 
         #sendBtn {
             min-width: 92px;
+            height: 54px;
+            align-self: stretch;
             animation: pulseGlow 3.8s ease-in-out infinite;
+        }
+
+        #sendBtn:disabled {
+            min-width: 116px;
+        }
+
+        .api-key-modal {
+            position: fixed;
+            inset: 0;
+            z-index: 20;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .api-key-modal.is-open {
+            display: flex;
+        }
+
+        .api-key-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(var(--primary-deep-rgb), 0.28);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            animation: messageIn 0.22s ease both;
+        }
+
+        .api-key-panel {
+            width: min(100%, 430px);
+            position: relative;
+            z-index: 1;
+            padding: 30px;
+            border-radius: var(--radius-xl);
+            background: linear-gradient(145deg, rgba(var(--white-rgb), 0.94), rgba(var(--surface-soft-rgb), 0.88));
+            border: 1px solid var(--border-light);
+            box-shadow: var(--shadow-lg), inset 1px 1px 3px rgba(var(--white-rgb), 0.95);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+            animation: messageIn 0.32s ease both;
+            overflow: hidden;
+        }
+
+        .api-key-panel::before {
+            content: "";
+            position: absolute;
+            inset: -80px -70px auto auto;
+            width: 190px;
+            height: 190px;
+            border-radius: 999px;
+            background: radial-gradient(circle, rgba(var(--primary-light-rgb), 0.22), transparent 68%);
+            pointer-events: none;
+        }
+
+        .api-key-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            min-height: 40px;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(var(--white-rgb), 0.72);
+            color: var(--primary-dark);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .api-key-icon {
+            width: 58px;
+            height: 58px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            color: var(--text-inverse);
+            background: var(--gradient-primary);
+            box-shadow: var(--shadow-button), inset 1px 1px 1px rgba(var(--white-rgb), 0.48);
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .api-key-panel h2 {
+            position: relative;
+            z-index: 1;
+            font-size: 1.35rem;
+            line-height: 1.1;
+            letter-spacing: -0.04em;
+            color: var(--text-main);
+            margin-bottom: 8px;
+        }
+
+        .api-key-help {
+            position: relative;
+            z-index: 1;
+            color: var(--text-soft);
+            font-size: 0.92rem;
+            line-height: 1.45;
+            margin-bottom: 20px;
+        }
+
+        .api-key-field {
+            position: relative;
+            z-index: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin-bottom: 18px;
+        }
+
+        .api-key-field span {
+            color: var(--primary-dark);
+            font-size: 0.78rem;
+            font-weight: 850;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+        }
+
+        .api-key-field input {
+            width: 100%;
+            min-width: 0;
+            padding: 14px 16px;
+            border: 1px solid var(--border-color);
+            border-radius: 18px;
+            background: rgba(var(--white-rgb), 0.72);
+            color: var(--text-main);
+            box-shadow: var(--shadow-inset);
+            outline: none;
+            transition: border-color 0.24s ease, box-shadow 0.24s ease, background 0.24s ease, transform 0.24s ease;
+        }
+
+        .api-key-actions {
+            position: relative;
+            z-index: 1;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+            gap: 10px;
+            align-items: center;
+        }
+
+        .api-key-actions button {
+            width: 100%;
+            padding: 0 14px;
+        }
+
+        .secondary-button {
+            background: rgba(var(--white-rgb), 0.72);
+            color: var(--primary-dark);
+            border-color: var(--border-light);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .secondary-button:hover:not(:disabled) {
+            box-shadow: var(--shadow-md);
         }
 
         @media (max-width: 760px) {
@@ -540,22 +756,11 @@
             header {
                 min-height: auto;
                 padding: 18px 16px 14px;
-                flex-direction: column;
-                align-items: stretch;
                 gap: 14px;
             }
 
             .logo-area {
                 justify-content: flex-start;
-            }
-
-            .api-config {
-                width: 100%;
-            }
-
-            .api-config input {
-                flex: 1;
-                width: auto;
             }
 
             main {
@@ -573,21 +778,55 @@
         }
 
         @media (max-width: 420px) {
-            .api-config,
+            .api-config {
+                grid-template-columns: 1fr;
+            }
+
+            .api-status {
+                width: 100%;
+            }
+
             .input-container {
                 gap: 7px;
+                padding: 7px;
             }
 
             button {
-                padding: 0 16px;
+                padding: 0 15px;
+                font-size: 0.86rem;
             }
 
-            .input-container {
-                padding: 7px;
+            #sendBtn {
+                min-width: 82px;
+            }
+
+            #sendBtn:disabled {
+                min-width: 104px;
             }
 
             textarea {
                 height: 54px;
+                font-size: 0.9rem;
+            }
+
+            .api-key-panel {
+                padding: 26px 20px 22px;
+                border-radius: 28px;
+            }
+
+            .api-key-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 340px) {
+            .input-container {
+                grid-template-columns: 1fr;
+            }
+
+            #sendBtn {
+                width: 100%;
+                min-width: 0;
             }
         }
 
@@ -609,10 +848,38 @@
             <h1>Mesa de Ayuda IA</h1>
         </div>
         <div class="api-config">
-            <input type="password" id="apiKeyInput" placeholder="Ingrese su API Key de OpenAI/Gemini...">
-            <button onclick="saveApiKey()">Conectar</button>
+            <button type="button" id="openApiKeyBtn" onclick="openApiKeyPanel()">Ingresar API Key</button>
+            <span id="apiStatus" class="api-status">Sin conectar</span>
         </div>
     </header>
+
+    <!-- Panel seguro de sesión: ingreso temporal de API Key solo en memoria -->
+    <div class="api-key-modal" id="apiKeyModal" aria-hidden="true">
+        <div class="api-key-backdrop" onclick="closeApiKeyPanel()"></div>
+        <section class="api-key-panel" role="dialog" aria-modal="true" aria-labelledby="apiKeyTitle">
+            <button type="button" class="api-key-close" onclick="closeApiKeyPanel()" aria-label="Cerrar panel de API Key">
+                <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+                </svg>
+            </button>
+            <div class="api-key-icon" aria-hidden="true">
+                <svg viewBox="0 0 32 32" width="30" height="30">
+                    <path d="M13.2 18.8a7 7 0 1 1 2.2 2.2l-2.4 2.4h-3v3H7v3H3.5v-4.6l7.5-7.5" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <circle cx="21.5" cy="10.5" r="2" fill="currentColor"/>
+                </svg>
+            </div>
+            <h2 id="apiKeyTitle">Ingresar API Key</h2>
+            <p class="api-key-help">La llave se guarda solo en memoria durante esta sesión del navegador.</p>
+            <label class="api-key-field" for="apiKeyInput">
+                <span>API Key de OpenAI</span>
+                <input type="password" id="apiKeyInput" autocomplete="off" spellcheck="false" placeholder="sk-...">
+            </label>
+            <div class="api-key-actions">
+                <button type="button" id="connectApiKeyBtn" onclick="saveApiKey()">Conectar</button>
+                <button type="button" class="secondary-button" id="replaceApiKeyBtn" onclick="resetApiKeyEntry()">Reemplazar</button>
+            </div>
+        </section>
+    </div>
 
     <!-- main/body: ventana de conversación donde aparecerán los mensajes -->
     <main id="chatWindow">
@@ -651,23 +918,52 @@
         // Definición del comportamiento: "Eres un experto en mantenimiento industrial y riesgo operativo..."
         const SYSTEM_PROMPT = '';
 
+        const OPENAI_API_BASE_URL = 'https://api.openai.com/v1';
+        const OPENAI_CHAT_COMPLETIONS_URL = `${OPENAI_API_BASE_URL}/chat/completions`;
+        const OPENAI_MODELS_URL = `${OPENAI_API_BASE_URL}/models`;
+        const OPENAI_MODEL = 'gpt-4o-mini';
+        const REQUEST_TIMEOUT_MS = 45000;
+
         /* Módulo 4 → API Key: función saveApiKey() (vacío por ahora) */
-        function saveApiKey() {
+        async function saveApiKey() {
             // Lógica para capturar el valor del input y validarlo o guardarlo en localStorage.
             const apiKeyInput = document.getElementById('apiKeyInput');
-            const connectButton = document.querySelector('.api-config button');
+            const connectButton = document.getElementById('connectApiKeyBtn');
             const value = apiKeyInput.value.trim();
 
             if (!value.startsWith('sk-')) {
                 alert('La API Key no parece válida. Debe empezar con "sk-".');
+                openApiKeyPanel();
+                apiKeyInput.focus();
+                return;
+            }
+
+            if (value.length < 40) {
+                alert('La API Key parece incompleta. Revise que la haya copiado completa.');
+                openApiKeyPanel();
                 apiKeyInput.focus();
                 return;
             }
 
             apiKey = value;
-            apiKeyInput.disabled = true;
-            connectButton.textContent = '✓ Conectado';
             connectButton.disabled = true;
+            connectButton.textContent = 'Verificando...';
+
+            try {
+                await testOpenAIConnection();
+                apiKeyInput.disabled = true;
+                connectButton.textContent = '✓ Conectado';
+                setApiKeyUiState(true);
+                window.setTimeout(closeApiKeyPanel, 650);
+            } catch (error) {
+                apiKey = '';
+                connectButton.disabled = false;
+                connectButton.textContent = 'Conectar';
+                apiKeyInput.disabled = false;
+                setApiKeyUiState(false);
+                apiKeyInput.focus();
+                alert(error.message);
+            }
         }
 
         /* Módulo 5 → Enviar mensaje: función sendMessage() (vacío por ahora) */
@@ -678,6 +974,7 @@
             const text = userInput.value.trim();
 
             if (!apiKey) {
+                openApiKeyPanel();
                 alert('Primero ingrese y conecte una API Key válida de OpenAI.');
                 document.getElementById('apiKeyInput').focus();
                 return;
@@ -689,67 +986,103 @@
             }
 
             conversationHistory.push({ role: 'user', content: text });
+            const userMessageIndex = conversationHistory.length - 1;
             addMessage('user', text);
 
             userInput.value = '';
             autoResize(userInput);
             showTyping(true);
-            sendButton.disabled = true;
+            setSendButtonLoading(true);
 
             try {
-                const response = await fetch('https://api.openai.com/v1/chat/completions', {
+                const response = await fetchWithTimeout(OPENAI_CHAT_COMPLETIONS_URL, {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${apiKey}`
                     },
                     body: JSON.stringify({
-                        model: 'gpt-4o-mini',
+                        model: OPENAI_MODEL,
                         temperature: 0.3,
                         max_tokens: 600,
-                        messages: [
-                            { role: 'system', content: SYSTEM_PROMPT },
-                            ...conversationHistory
-                        ]
+                        messages: buildMessages()
                     })
                 });
 
-                if (!response.ok) {
-                    let errorMessage = `Error HTTP ${response.status}`;
+                const data = await parseOpenAIResponse(response);
+                const assistantText = data?.choices?.[0]?.message?.content?.trim();
 
-                    try {
-                        const errorData = await response.json();
-                        errorMessage = errorData?.error?.message || errorMessage;
-                    } catch (parseError) {
-                        // Si la respuesta de error no es JSON, se conserva el mensaje HTTP.
-                    }
-
-                    throw new Error(errorMessage);
+                if (!assistantText) {
+                    throw new Error('La API respondió, pero no devolvió contenido de texto válido.');
                 }
-
-                const data = await response.json();
-                const assistantText = data?.choices?.[0]?.message?.content?.trim() || 'No se recibió una respuesta válida del modelo.';
 
                 conversationHistory.push({ role: 'assistant', content: assistantText });
                 addMessage('assistant', assistantText);
             } catch (error) {
+                // Si la llamada falla, se retira el último mensaje del historial para no contaminar el contexto multi-turno.
+                if (conversationHistory[userMessageIndex]?.role === 'user') {
+                    conversationHistory.splice(userMessageIndex, 1);
+                }
+
                 console.error('Error al llamar a la API de OpenAI:', error);
-                addMessage('assistant', `No fue posible obtener respuesta de la IA. Detalle: ${error.message}`);
+                addMessage('assistant', formatUserFacingError(error));
             } finally {
                 showTyping(false);
-                sendButton.disabled = false;
+                setSendButtonLoading(false);
                 userInput.focus();
             }
         }
 
         /* Módulo 6 → UI helpers: funciones de interfaz (vacío por ahora) */
         // Funciones para limpiar el input, hacer scroll automático al final del chat y renderizar burbujas.
+        function openApiKeyPanel() {
+            const modal = document.getElementById('apiKeyModal');
+            const apiKeyInput = document.getElementById('apiKeyInput');
+
+            modal.classList.add('is-open');
+            modal.setAttribute('aria-hidden', 'false');
+
+            window.setTimeout(() => {
+                if (!apiKeyInput.disabled) apiKeyInput.focus();
+            }, 80);
+        }
+
+        function closeApiKeyPanel() {
+            const modal = document.getElementById('apiKeyModal');
+
+            modal.classList.remove('is-open');
+            modal.setAttribute('aria-hidden', 'true');
+        }
+
+        function resetApiKeyEntry() {
+            const apiKeyInput = document.getElementById('apiKeyInput');
+            const connectButton = document.getElementById('connectApiKeyBtn');
+
+            apiKey = '';
+            apiKeyInput.value = '';
+            apiKeyInput.disabled = false;
+            connectButton.disabled = false;
+            connectButton.textContent = 'Conectar';
+            setApiKeyUiState(false);
+            apiKeyInput.focus();
+        }
+
+        function setApiKeyUiState(isConnected) {
+            const openButton = document.getElementById('openApiKeyBtn');
+            const apiStatus = document.getElementById('apiStatus');
+
+            openButton.textContent = isConnected ? 'Cambiar API Key' : 'Ingresar API Key';
+            openButton.classList.toggle('is-connected', isConnected);
+            apiStatus.textContent = isConnected ? 'Conectado' : 'Sin conectar';
+            apiStatus.classList.toggle('is-connected', isConnected);
+        }
+
         function addMessage(role, text) {
             const chatPlaceholder = document.querySelector('.chat-placeholder');
             const message = document.createElement('div');
             const cssRole = role === 'user' ? 'user' : 'ai';
             const label = role === 'user' ? 'Usuario:' : 'Asistente IA:';
-            const safeText = escapeHtml(text).replace(/\n/g, '<br>');
+            const safeText = escapeHtml(text).split('\n').join('<br>');
 
             message.className = `message ${cssRole}`;
             message.innerHTML = `<strong>${label}</strong><p>${safeText}</p>`;
@@ -805,6 +1138,108 @@
             chatWindow.scrollTop = chatWindow.scrollHeight;
         }
 
+        function buildMessages() {
+            const messages = [];
+
+            if (SYSTEM_PROMPT.trim()) {
+                messages.push({ role: 'system', content: SYSTEM_PROMPT.trim() });
+            }
+
+            return [...messages, ...conversationHistory];
+        }
+
+        async function testOpenAIConnection() {
+            const response = await fetchWithTimeout(OPENAI_MODELS_URL, {
+                method: 'GET',
+                headers: {
+                    'Authorization': `Bearer ${apiKey}`
+                }
+            }, 20000);
+
+            await parseOpenAIResponse(response);
+        }
+
+        async function fetchWithTimeout(url, options = {}, timeoutMs = REQUEST_TIMEOUT_MS) {
+            const controller = new AbortController();
+            const timeoutId = window.setTimeout(() => controller.abort(), timeoutMs);
+
+            try {
+                return await fetch(url, {
+                    ...options,
+                    signal: controller.signal
+                });
+            } catch (error) {
+                if (error.name === 'AbortError') {
+                    throw new Error('La solicitud tardó demasiado y fue cancelada. Revise su conexión o vuelva a intentar.');
+                }
+
+                if (error instanceof TypeError && error.message === 'Failed to fetch') {
+                    throw new Error('No fue posible conectar desde el navegador. Posibles causas: bloqueo CORS, red, firewall, extensión del navegador o intento de usar OpenAI directamente desde GitHub Pages. Para producción use un backend/proxy serverless y no exponga la API Key en el HTML.');
+                }
+
+                throw error;
+            } finally {
+                window.clearTimeout(timeoutId);
+            }
+        }
+
+        async function parseOpenAIResponse(response) {
+            let data = null;
+            const requestId = response.headers.get('x-request-id');
+
+            try {
+                data = await response.json();
+            } catch (error) {
+                data = null;
+            }
+
+            if (!response.ok) {
+                const apiMessage = data?.error?.message || `Error HTTP ${response.status}`;
+                const friendlyMessage = mapHttpStatusToMessage(response.status, apiMessage, requestId);
+                throw new Error(friendlyMessage);
+            }
+
+            return data;
+        }
+
+        function mapHttpStatusToMessage(status, apiMessage, requestId) {
+            const suffix = requestId ? ` ID de solicitud: ${requestId}.` : '';
+
+            if (status === 401) {
+                return `API Key inválida, revocada o mal copiada. Detalle: ${apiMessage}.${suffix}`;
+            }
+
+            if (status === 403) {
+                return `La API Key no tiene permisos suficientes para este proyecto/modelo. Detalle: ${apiMessage}.${suffix}`;
+            }
+
+            if (status === 404) {
+                return `El endpoint o el modelo no está disponible para esta cuenta. Revise el modelo configurado: ${OPENAI_MODEL}. Detalle: ${apiMessage}.${suffix}`;
+            }
+
+            if (status === 429) {
+                return `Límite de uso, cuota o facturación insuficiente. Revise billing, límites del proyecto y rate limits. Detalle: ${apiMessage}.${suffix}`;
+            }
+
+            if (status >= 500) {
+                return `Error temporal del servicio de OpenAI. Intente nuevamente. Detalle: ${apiMessage}.${suffix}`;
+            }
+
+            return `${apiMessage}.${suffix}`;
+        }
+
+        function formatUserFacingError(error) {
+            return `No fue posible obtener respuesta de la IA.
+
+${error.message}`;
+        }
+
+        function setSendButtonLoading(isLoading) {
+            const sendButton = document.getElementById('sendBtn');
+            sendButton.disabled = isLoading;
+            sendButton.textContent = isLoading ? 'Enviando...' : 'Enviar';
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             const userInput = document.getElementById('userInput');
             const apiKeyInput = document.getElementById('apiKeyInput');
@@ -816,6 +1251,12 @@
                 if (e.key === 'Enter') {
                     e.preventDefault();
                     saveApiKey();
+                }
+            });
+
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    closeApiKeyPanel();
                 }
             });
         });
